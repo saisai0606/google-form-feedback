@@ -6,7 +6,7 @@ exports.handler = async (event) => {
     const body = JSON.parse(event.body);
 
     const auth = new google.auth.GoogleAuth({
-      credentials: JSON.parse(readFileSync('./google-service-account.json')),
+      credentials: JSON.parse(readFileSync(`${__dirname}/../google-service-account.json`)),
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
 

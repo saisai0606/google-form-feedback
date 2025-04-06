@@ -6,4 +6,4 @@
   node_bundler = "esbuild"
 
 [functions."submit"]
-  included_files = ["google-service-account.json"]
+included_files = ["google-service-account.json"]
