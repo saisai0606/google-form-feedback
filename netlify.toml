@@ -1,2 +1,9 @@
 [build]
   functions = "functions"
+  command = "cd functions && npm install"
+
+[functions]
+  node_bundler = "esbuild"
+
+[functions."submit"]
+  included_files = ["google-service-account.json"]
