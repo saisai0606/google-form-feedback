@@ -1,0 +1,10 @@
+{
+    "name": "netlify-functions",
+    "version": "1.0.0",
+    "description": "Functions for Google Sheets feedback submission",
+    "main": "submit.js",
+    "dependencies": {
+      "googleapis": "^133.0.0"
+    }
+  }
+  
