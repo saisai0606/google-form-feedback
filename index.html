@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>問卷測試頁</title>
+</head>
+<body>
+  <h2>問卷送出測試</h2>
+  <button onclick="submitData()">送出資料到 Google Sheets</button>
+
+  <script>
+    function submitData() {
+      fetch("/.netlify/functions/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          visit_times: "第一次",
+          gender: "男",
+          age_range: "20-29",
+          reason: "朋友推薦",
+          platforms: "Instagram",
+          city: "台南市",
+          district: "中西區",
+          fry_rating: "5",
+          cooked_rating: "4",
+          portion: "剛好",
+          sashimi_rating: "5",
+          revisit: "會",
+          price_match: "符合",
+          suggestion: "沒有",
+          name: "王小明",
+          phone: "0912345678",
+          dining_date: "2025-04-06",
+          dining_period: "午餐",
+          price_select: "NT$2500",
+          price_reason: "料理品質高",
+          price_value: "值得",
+          price_next: "仍選2500",
+          price_gap: "1000剛好",
+          recommend: "一定推薦"
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert("✅ 成功送出問卷：" + JSON.stringify(data));
+      })
+      .catch(err => {
+        alert("❌ 傳送失敗：" + err);
+      });
+    }
+  </script>
+</body>
+</html>
