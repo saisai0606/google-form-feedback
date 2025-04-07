@@ -1,12 +1,15 @@
 const { google } = require('googleapis');
-const { readFileSync } = require('fs');
 
 exports.handler = async (event) => {
   try {
     const body = JSON.parse(event.body);
 
+    const credentials = JSON.parse(
+      process.env.GOOGLE_SERVICE_ACCOUNT.replace(/\\n/g, '\n')
+    );
+
     const auth = new google.auth.GoogleAuth({
-      credentials: JSON.parse(readFileSync(`${__dirname}/google-service-account.json`)),
+      credentials,
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
 
